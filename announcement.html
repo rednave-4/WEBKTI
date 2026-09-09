@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengumuman - SMA Negeri 10 Samarinda</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo-area">
+        <div class="logo-circle">10</div>
+        <div class="logo-text">
+          <h1>SMA Negeri 10 Samarinda</h1>
+          <p>Jl. H. A.M.M. Rifaddin RT.25, Loa Janan Ilir</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Beranda</a>
+        <a href="announcement.html" class="nav-link active">Pengumuman</a>
+        <a href="#" class="nav-link disabled">Peta</a>
+        <a href="admin.html" class="nav-link admin-btn">Admin</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="page-header">
+        <h1>Pengumuman Kegiatan</h1>
+        <p>Informasi resmi kegiatan sekolah</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="upcoming">Akan Datang</button>
+        <button class="filter-btn" data-filter="archive">Arsip</button>
+        <button class="filter-btn" data-filter="all">Semua</button>
+      </div>
+
+      <!-- Sort -->
+      <div class="sort-bar">
+        <label>Urutkan:</label>
+        <select id="sortSelect">
+          <option value="date-asc">Tanggal Terdekat</option>
+          <option value="date-desc">Tanggal Terjauh</option>
+          <option value="newest">Terbaru Ditambahkan</option>
+        </select>
+      </div>
+
+      <!-- Cards -->
+      <div class="cards-grid" id="announcementCards">
+        <!-- diisi JS -->
+      </div>
+
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-icon">📭</div>
+        <h3>Belum ada pengumuman</h3>
+        <p>Admin belum menambahkan pengumuman untuk kategori ini.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 SMA Negeri 10 Samarinda. Semua hak dilindungi.</p>
+      <p class="footer-sub">Empowering Yourself, LIGHT The Way</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initAnnouncementPage();
+      setupMobileMenu();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - SMA Negeri 10 Samarinda</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo-area">
+        <div class="logo-circle">10</div>
+        <div class="logo-text">
+          <h1>SMA Negeri 10 Samarinda</h1>
+          <p>Panel Admin</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Beranda</a>
+        <a href="announcement.html" class="nav-link">Pengumuman</a>
+        <a href="admin.html" class="nav-link active">Admin</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <!-- Login Form -->
+      <div id="loginSection" class="login-card">
+        <h2>Login Admin</h2>
+        <p class="login-sub">Masuk untuk mengelola pengumuman</p>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" required autocomplete="username" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required autocomplete="current-password" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+          <p id="loginError" class="error-msg" style="display:none;"></p>
+        </form>
+      </div>
+
+      <!-- Admin Dashboard -->
+      <div id="adminSection" style="display:none;">
+        <div class="admin-header">
+          <div>
+            <h1>Dashboard Admin</h1>
+            <p>Kelola pengumuman kegiatan sekolah</p>
+          </div>
+          <button class="btn btn-outline" id="logoutBtn">Keluar</button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="admin-tabs">
+          <button class="admin-tab active" data-tab="list">Daftar Pengumuman</button>
+          <button class="admin-tab" data-tab="add">Tambah Baru</button>
+        </div>
+
+        <!-- List Tab -->
+        <div id="listTab" class="admin-tab-content">
+          <div class="admin-list" id="adminList">
+            <!-- diisi JS -->
+          </div>
+        </div>
+
+        <!-- Add / Edit Form -->
+        <div id="addTab" class="admin-tab-content" style="display:none;">
+          <form id="announcementForm" class="admin-form">
+            <input type="hidden" id="editId" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="namaAcara">1. Nama Acara *</label>
+                <input type="text" id="namaAcara" required placeholder="Contoh: Lomba 17 Agustus" />
+              </div>
+              <div class="form-group">
+                <label for="tanggal">2. Tanggal Pelaksanaan *</label>
+                <input type="date" id="tanggal" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="jam">3. Jam Kegiatan *</label>
+                <input type="text" id="jam" required placeholder="Contoh: 07.30 - 12.00 WITA" />
+              </div>
+              <div class="form-group">
+                <label for="lokasi">4. Lokasi *</label>
+                <input type="text" id="lokasi" required placeholder="Contoh: Lapangan Upacara / Aula" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pj">5. PJ (Penanggung Jawab) *</label>
+                <input type="text" id="pj" required placeholder="Nama PJ" />
+              </div>
+              <div class="form-group">
+                <label for="narahubung">Narahubung *</label>
+                <input type="text" id="narahubung" required placeholder="No. HP / WhatsApp" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="keterangan">7. Keterangan Kegiatan (alat & barang yang perlu dibawa)</label>
+              <textarea id="keterangan" rows="3" placeholder="Contoh: Bawa botol minum, topi, dll"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="deskripsi">8. Deskripsi Kegiatan</label>
+              <textarea id="deskripsi" rows="4" placeholder="Jelaskan detail kegiatan..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>6. Gambar (bisa lebih dari 1)</label>
+              <div class="upload-area" id="uploadArea">
+                <input type="file" id="gambarInput" accept="image/*" multiple />
+                <div class="upload-placeholder">
+                  <span>📷</span>
+                  <p>Klik atau seret gambar ke sini</p>
+                  <small>Bisa pilih beberapa file sekaligus</small>
+                </div>
+              </div>
+              <div class="preview-images" id="previewImages"></div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" id="cancelEdit">Batal</button>
+              <button type="submit" class="btn btn-primary" id="submitBtn">Simpan Pengumuman</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 SMA Negeri 10 Samarinda. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initAdmin();
+      setupMobileMenu();
+    });
+  </script>
+</body>
+</html>
