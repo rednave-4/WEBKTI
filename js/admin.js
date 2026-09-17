@@ -1,7 +1,3 @@
-/**
- * Admin panel logic
- */
-
 const ADMIN_USER = 'admin';
 const ADMIN_PASS = 'evanganteng';
 
