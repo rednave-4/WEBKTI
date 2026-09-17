@@ -1,5 +1,5 @@
 const ADMIN_USER = 'admin';
-const ADMIN_PASS = 'evanganteng';
+const ADMIN_PASS = 'evanzackyoxanganteng';
 
 let uploadedImages = []; // base64 strings untuk form saat ini
 
